@@ -13,7 +13,7 @@
   when: not jenkins_init_file_stat.stat.exists
 
 # jenkins_init_changes from vars/main.yml
-- name: Modify variables in init file.
+- name: Modify (variables in) init file.
   lineinfile:
     dest: "{{ jenkins_init_file }}"
     insertafter: '^{{ item.option }}='
@@ -23,7 +23,7 @@
   with_items: "{{ jenkins_init_changes }}"
   register: jenkins_init_prefix
 
-- name: Set the Jenkins home directory.
+- name: Set the Jenkins home directory in init file.
   lineinfile:
     dest: "{{ jenkins_init_file }}"
     regexp: '^JENKINS_HOME=.*'
