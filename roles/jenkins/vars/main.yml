@@ -1,1 +1,21 @@
 java_pkg: java-1.8.0-openjdk-devel
+jenkins_version: 2.160
+
+#jenkins_connection_delay: 5
+#jenkins_connection_retries: 60
+#jenkins_hostname: localhost
+#jenkins_http_port: 8080
+#jenkins_jar_location: /opt/jenkins-cli.jar
+#jenkins_url_prefix: ""
+#jenkins_java_options: "-Djenkins.install.runSetupWizard=false"
+
+
+# for handler 'configure default user'
+jenkins_home: /var/lib/jenkins
+
+jenkins_process_user: jenkins
+jenkins_process_group: "{{ jenkins_process_user }}"
+
+# for template basic-security.groovy.j2
+jenkins_admin_username: admin
+jenkins_admin_password: admin
