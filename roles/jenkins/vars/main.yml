@@ -10,7 +10,7 @@ jenkins_version: 2.160
 #jenkins_java_options: "-Djenkins.install.runSetupWizard=false"
 
 
-# for handler 'configure default user'
+# for handler 'configure default user' and for tasks/settings.yml
 jenkins_home: /var/lib/jenkins
 
 jenkins_process_user: jenkins
@@ -19,3 +19,14 @@ jenkins_process_group: "{{ jenkins_process_user }}"
 # for template basic-security.groovy.j2
 jenkins_admin_username: admin
 jenkins_admin_password: admin
+
+# for tasks/settings.yml
+jenkins_url_prefix: ""
+jenkins_java_options: "-Djenkins.install.runSetupWizard=false"
+jenkins_http_port: 8080
+
+jenkins_init_changes:
+  - option: "JENKINS_ARGS"
+    value: "--prefix={{ jenkins_url_prefix }}"
+  - option: "{{ jenkins_java_options_env_var }}"
+    value: "{{ jenkins_java_options }}"
