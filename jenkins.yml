@@ -1,0 +1,7 @@
+---
+
+- hosts: jenkins_master
+  roles:
+    - { role: jenkins}
+
+
