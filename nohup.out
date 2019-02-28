@@ -1,0 +1,203 @@
+ [WARNING]: While constructing a mapping from
+/opt/ansible/playbooks/roles/jenkins/vars/main.yml, line 1, column 1, found a
+duplicate dict key (jenkins_http_port). Using last defined value only.
+ [WARNING]: While constructing a mapping from
+/opt/ansible/playbooks/roles/jenkins/vars/main.yml, line 1, column 1, found a
+duplicate dict key (jenkins_admin_username). Using last defined value only.
+ [WARNING]: While constructing a mapping from
+/opt/ansible/playbooks/roles/jenkins/vars/main.yml, line 1, column 1, found a
+duplicate dict key (jenkins_admin_password). Using last defined value only.
+
+PLAY [jenkins_master] **********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [10.1.0.4]
+
+TASK [jenkins : Install Java] **************************************************
+ok: [10.1.0.4]
+
+TASK [jenkins : Include OS-Specific variables] *********************************
+ok: [10.1.0.4]
+
+TASK [jenkins : Define jenkins_repo_url] ***************************************
+ok: [10.1.0.4]
+
+TASK [jenkins : Define jenkins_repo_key_url] ***********************************
+ok: [10.1.0.4]
+
+TASK [jenkins : Define jenkins_pkg_url] ****************************************
+ok: [10.1.0.4]
+
+TASK [jenkins : include_tasks] *************************************************
+included: /opt/ansible/playbooks/roles/jenkins/tasks/setup-RedHat.yml for 10.1.0.4
+
+TASK [jenkins : Ensure dependencies are installed.] ****************************
+ok: [10.1.0.4]
+
+TASK [jenkins : Ensure Jenkins repo is installed.] *****************************
+ok: [10.1.0.4]
+
+TASK [jenkins : Add Jenkins repo GPG key.] *************************************
+ok: [10.1.0.4]
+
+TASK [jenkins : Download specific Jenkins version.] ****************************
+ok: [10.1.0.4]
+
+TASK [jenkins : Check if we downloaded a specific version of Jenkins.] *********
+ok: [10.1.0.4]
+
+TASK [jenkins : debug] *********************************************************
+ok: [10.1.0.4] => {
+    "specific_version": {
+        "changed": false, 
+        "failed": false, 
+        "stat": {
+            "atime": 1551189998.7119563, 
+            "attr_flags": "", 
+            "attributes": [], 
+            "block_size": 4096, 
+            "blocks": 134080, 
+            "charset": "binary", 
+            "checksum": "731f5ae76452e4cfd9f0c228458c6ca51db8714b", 
+            "ctime": 1551189998.7109563, 
+            "dev": 2050, 
+            "device_type": 0, 
+            "executable": false, 
+            "exists": true, 
+            "gid": 1000, 
+            "gr_name": "asusin", 
+            "inode": 17877918, 
+            "isblk": false, 
+            "ischr": false, 
+            "isdir": false, 
+            "isfifo": false, 
+            "isgid": false, 
+            "islnk": false, 
+            "isreg": true, 
+            "issock": false, 
+            "isuid": false, 
+            "mimetype": "application/x-rpm", 
+            "mode": "0664", 
+            "mtime": 1551189998.409955, 
+            "nlink": 1, 
+            "path": "/tmp/jenkins-2.6-1.1.noarch.rpm", 
+            "pw_name": "asusin", 
+            "readable": true, 
+            "rgrp": true, 
+            "roth": true, 
+            "rusr": true, 
+            "size": 68648192, 
+            "uid": 1000, 
+            "version": "18446744072324711316", 
+            "wgrp": true, 
+            "woth": false, 
+            "writeable": true, 
+            "wusr": true, 
+            "xgrp": false, 
+            "xoth": false, 
+            "xusr": false
+        }
+    }
+}
+
+TASK [jenkins : Install our specific version of Jenkins.] **********************
+ok: [10.1.0.4]
+
+TASK [jenkins : Check if jenkins_init_file exists.] ****************************
+ok: [10.1.0.4]
+
+TASK [jenkins : Ensure jenkins_init_file exists.] ******************************
+skipping: [10.1.0.4]
+
+TASK [jenkins : Modify (variables in) init file.] ******************************
+ok: [10.1.0.4] => (item={u'option': u'JENKINS_ARGS', u'value': u'--prefix='})
+ok: [10.1.0.4] => (item={u'option': u'JENKINS_JAVA_OPTIONS', u'value': u'-Djenkins.install.runSetupWizard=false'})
+
+TASK [jenkins : Set the Jenkins home directory in init file.] ******************
+ok: [10.1.0.4]
+
+TASK [jenkins : Immediately restart Jenkins on init config changes.] ***********
+skipping: [10.1.0.4]
+
+TASK [jenkins : Set HTTP port in Jenkins config.] ******************************
+ok: [10.1.0.4]
+
+TASK [jenkins : Ensure jenkins_home /var/lib/jenkins exists] *******************
+ok: [10.1.0.4]
+
+TASK [jenkins : Create custom init scripts directory.] *************************
+ok: [10.1.0.4]
+
+TASK [jenkins : Immediately restart Jenkins on http or user changes.] **********
+skipping: [10.1.0.4]
+
+TASK [jenkins : Ensure Jenkins is started and runs on startup.] ****************
+ok: [10.1.0.4]
+
+TASK [jenkins : Wait for Jenkins to start up before proceeding.] ***************
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (60 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (59 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (58 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (57 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (56 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (55 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (54 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (53 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (52 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (51 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (50 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (49 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (48 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (47 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (46 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (45 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (44 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (43 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (42 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (41 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (40 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (39 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (38 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (37 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (36 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (35 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (34 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (33 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (32 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (31 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (30 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (29 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (28 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (27 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (26 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (25 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (24 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (23 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (22 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (21 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (20 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (19 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (18 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (17 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (16 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (15 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (14 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (13 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (12 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (11 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (10 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (9 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (8 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (7 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (6 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (5 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (4 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (3 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (2 retries left).
+FAILED - RETRYING: Wait for Jenkins to start up before proceeding. (1 retries left).
+fatal: [10.1.0.4]: FAILED! => {"attempts": 60, "changed": false, "cmd": ["curl", "-D", "-", "--silent", "--max-time", "5", "http://localhost:8080/cli/"], "delta": "0:00:00.025081", "end": "2019-02-26 14:30:01.903376", "rc": 0, "start": "2019-02-26 14:30:01.878295", "stderr": "", "stderr_lines": [], "stdout": "HTTP/1.1 500 Server Error\r\nDate: Tue, 26 Feb 2019 14:30:01 GMT\r\nX-Content-Type-Options: nosniff\r\nExpires: Thu, 01 Jan 1970 00:00:00 GMT\r\nCache-Control: no-cache,no-store,must-revalidate\r\nX-Hudson-Theme: default\r\nContent-Type: text/html;charset=UTF-8\r\nSet-Cookie: JSESSIONID.6af7c45d=14di679dxavhdf4niknv5m2j0;Path=/;HttpOnly\r\nContent-Length: 7259\r\nServer: Jetty(9.2.z-SNAPSHOT)\r\n\r\n\n\n\n\n  \n  <!DOCTYPE html><html><head resURL=\"/static/ebb64d62\" data-rooturl=\"\" data-resurl=\"/static/ebb64d62\">\n    \n\n    <title>Jenkins</title><link rel=\"stylesheet\" href=\"/static/ebb64d62/css/layout-common.css\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/static/ebb64d62/css/style.css\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/static/ebb64d62/css/color.css\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/static/ebb64d62/css/responsive-grid.css\" type=\"text/css\" /><link rel=\"shortcut icon\" href=\"/static/ebb64d62/favicon.ico\" type=\"image/vnd.microsoft.icon\" /><link color=\"black\" rel=\"mask-icon\" href=\"/images/mask-icon.svg\" /><script>var isRunAsTest=false; var rootURL=\"\"; var resURL=\"/static/ebb64d62\";</script><script src=\"/static/ebb64d62/scripts/prototype.js\" type=\"text/javascript\"></script><script src=\"/static/ebb64d62/scripts/behavior.js\" type=\"text/javascript\"></script><script src='/adjuncts/ebb64d62/org/kohsuke/stapler/bind.js' type='text/javascript'></script><script src=\"/static/ebb64d62/scripts/yui/yahoo/yahoo-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/dom/dom-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/event/event-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/animation/animation-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/dragdrop/dragdrop-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/container/container-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/connection/connection-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/datasource/datasource-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/autocomplete/autocomplete-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/menu/menu-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/element/element-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/button/button-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/storage/storage-min.js\"></script><script src=\"/static/ebb64d62/scripts/hudson-behavior.js\" type=\"text/javascript\"></script><script src=\"/static/ebb64d62/scripts/sortable.js\" type=\"text/javascript\"></script><link rel=\"stylesheet\" href=\"/static/ebb64d62/scripts/yui/container/assets/container.css\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/static/ebb64d62/scripts/yui/assets/skins/sam/skin.css\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/static/ebb64d62/scripts/yui/container/assets/skins/sam/container.css\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/static/ebb64d62/scripts/yui/button/assets/skins/sam/button.css\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/static/ebb64d62/scripts/yui/menu/assets/skins/sam/menu.css\" type=\"text/css\" /><link rel=\"search\" href=\"/opensearch.xml\" type=\"application/opensearchdescription+xml\" title=\"Jenkins\" /><meta name=\"ROBOTS\" content=\"INDEX,NOFOLLOW\" /><script src=\"/static/ebb64d62/jsbundles/page-init.js\" type=\"text/javascript\"></script></head><body data-model-type=\"hudson.util.HudsonFailedToLoad\" id=\"jenkins\" class=\"yui-skin-sam jenkins-2.6 two-column\" data-version=\"2.6\"><a href=\"#skip2content\" class=\"skiplink\">Skip to content</a><div id=\"page-head\"><div id=\"header\"><div class=\"logo\"><a id=\"jenkins-home-link\" href=\"/\"><img src=\"/static/ebb64d62/images/headshot.png\" alt=\"title\" id=\"jenkins-head-icon\" /><img src=\"/static/ebb64d62/images/title.png\" alt=\"title\" width=\"139\" id=\"jenkins-name-icon\" height=\"34\" /></a></div><div class=\"login\"></div><div class=\"searchbox hidden-xs\"><form method=\"get\" name=\"search\" style=\"position:relative;\" class=\"no-json\"><div id=\"search-box-minWidth\"></div><div id=\"search-box-sizer\"></div><div id=\"searchform\"><input name=\"q\" placeholder=\"search\" id=\"search-box\" class=\"has-default-text\" />?<a href=\"http://wiki.jenkins-ci.org/display/JENKINS/Search+Box\"><img src=\"/static/ebb64d62/images/16x16/help.png\" style=\"width: 16px; height: 16px; \" class=\"icon-help icon-sm\" /></a><div id=\"search-box-completion\"></div><script>createSearchBox(\"\");</script></div></form></div></div><div id=\"breadcrumbBar\"><tr id=\"top-nav\"><td id=\"left-top-nav\" colspan=\"2\"><link rel='stylesheet' href='/adjuncts/ebb64d62/lib/layout/breadcrumbs.css' type='text/css' /><script src='/adjuncts/ebb64d62/lib/layout/breadcrumbs.js' type='text/javascript'></script><div class=\"top-sticker noedge\"><div class=\"top-sticker-inner\"><div id=\"right-top-nav\"><div id=\"right-top-nav\"><div class=\"smallfont\"><a href=\"?auto_refresh=true\">ENABLE AUTO REFRESH</a></div></div></div><ul id=\"breadcrumbs\"></ul><div id=\"breadcrumb-menu-target\"></div></div></div></td></tr></div></div><div id=\"page-body\" class=\"clear\"><div id=\"side-panel\"></div><div id=\"main-panel\"><a name=\"skip2content\"></a><h1><img src=\"/static/ebb64d62/images/48x48/error.png\" style=\"width: 48px; height: 48px; \" class=\"icon-error icon-xlg\" />?Error</h1><pre>hudson.util.HudsonFailedToLoad: org.jvnet.hudson.reactor.ReactorException: java.lang.Error: java.lang.reflect.InvocationTargetException\n\tat hudson.WebAppMain$3.run(WebAppMain.java:244)\nCaused by: org.jvnet.hudson.reactor.ReactorException: java.lang.Error: java.lang.reflect.InvocationTargetException\n\tat org.jvnet.hudson.reactor.Reactor.execute(Reactor.java:269)\n\tat jenkins.InitReactorRunner.run(InitReactorRunner.java:45)\n\tat jenkins.model.Jenkins.executeReactor(Jenkins.java:1007)\n\tat jenkins.model.Jenkins.&lt;init>(Jenkins.java:878)\n\tat hudson.model.Hudson.&lt;init>(Hudson.java:85)\n\tat hudson.model.Hudson.&lt;init>(Hudson.java:81)\n\tat hudson.WebAppMain$3.run(WebAppMain.java:227)\nCaused by: java.lang.Error: java.lang.reflect.InvocationTargetException\n\tat hudson.init.TaskMethodFinder.invoke(TaskMethodFinder.java:110)\n\tat hudson.init.TaskMethodFinder$TaskImpl.run(TaskMethodFinder.java:175)\n\tat org.jvnet.hudson.reactor.Reactor.runTask(Reactor.java:282)\n\tat jenkins.model.Jenkins$7.runTask(Jenkins.java:996)\n\tat org.jvnet.hudson.reactor.Reactor$2.run(Reactor.java:210)\n\tat org.jvnet.hudson.reactor.Reactor$Node.run(Reactor.java:117)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\nCaused by: java.lang.reflect.InvocationTargetException\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat hudson.init.TaskMethodFinder.invoke(TaskMethodFinder.java:104)\n\t... 8 more\nCaused by: java.lang.NoSuchMethodError: jenkins.model.Jenkins.get()Ljenkins/model/Jenkins;\n\tat org.jenkinsci.plugins.workflow.cps.nodes.StepDescriptorCache.getPublicCache(StepDescriptorCache.java:48)\n\tat org.jenkinsci.plugins.workflow.cps.nodes.StepDescriptorCache.invalidateGlobalCache(StepDescriptorCache.java:55)\n\t... 13 more\n</pre></div></div><footer><div class=\"container-fluid\"><div class=\"row\"><div class=\"col-md-6\" id=\"footer\"></div><div class=\"col-md-18\"><span class=\"page_generated\">Page generated: Feb 26, 2019 2:30:01 PM UTC</span><span class=\"jenkins_ver\"><a href=\"http://jenkins-ci.org/\">Jenkins ver. 2.6</a></span></div></div></div></footer></body></html>", "stdout_lines": ["HTTP/1.1 500 Server Error", "Date: Tue, 26 Feb 2019 14:30:01 GMT", "X-Content-Type-Options: nosniff", "Expires: Thu, 01 Jan 1970 00:00:00 GMT", "Cache-Control: no-cache,no-store,must-revalidate", "X-Hudson-Theme: default", "Content-Type: text/html;charset=UTF-8", "Set-Cookie: JSESSIONID.6af7c45d=14di679dxavhdf4niknv5m2j0;Path=/;HttpOnly", "Content-Length: 7259", "Server: Jetty(9.2.z-SNAPSHOT)", "", "", "", "", "", "  ", "  <!DOCTYPE html><html><head resURL=\"/static/ebb64d62\" data-rooturl=\"\" data-resurl=\"/static/ebb64d62\">", "    ", "", "    <title>Jenkins</title><link rel=\"stylesheet\" href=\"/static/ebb64d62/css/layout-common.css\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/static/ebb64d62/css/style.css\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/static/ebb64d62/css/color.css\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/static/ebb64d62/css/responsive-grid.css\" type=\"text/css\" /><link rel=\"shortcut icon\" href=\"/static/ebb64d62/favicon.ico\" type=\"image/vnd.microsoft.icon\" /><link color=\"black\" rel=\"mask-icon\" href=\"/images/mask-icon.svg\" /><script>var isRunAsTest=false; var rootURL=\"\"; var resURL=\"/static/ebb64d62\";</script><script src=\"/static/ebb64d62/scripts/prototype.js\" type=\"text/javascript\"></script><script src=\"/static/ebb64d62/scripts/behavior.js\" type=\"text/javascript\"></script><script src='/adjuncts/ebb64d62/org/kohsuke/stapler/bind.js' type='text/javascript'></script><script src=\"/static/ebb64d62/scripts/yui/yahoo/yahoo-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/dom/dom-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/event/event-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/animation/animation-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/dragdrop/dragdrop-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/container/container-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/connection/connection-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/datasource/datasource-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/autocomplete/autocomplete-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/menu/menu-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/element/element-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/button/button-min.js\"></script><script src=\"/static/ebb64d62/scripts/yui/storage/storage-min.js\"></script><script src=\"/static/ebb64d62/scripts/hudson-behavior.js\" type=\"text/javascript\"></script><script src=\"/static/ebb64d62/scripts/sortable.js\" type=\"text/javascript\"></script><link rel=\"stylesheet\" href=\"/static/ebb64d62/scripts/yui/container/assets/container.css\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/static/ebb64d62/scripts/yui/assets/skins/sam/skin.css\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/static/ebb64d62/scripts/yui/container/assets/skins/sam/container.css\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/static/ebb64d62/scripts/yui/button/assets/skins/sam/button.css\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/static/ebb64d62/scripts/yui/menu/assets/skins/sam/menu.css\" type=\"text/css\" /><link rel=\"search\" href=\"/opensearch.xml\" type=\"application/opensearchdescription+xml\" title=\"Jenkins\" /><meta name=\"ROBOTS\" content=\"INDEX,NOFOLLOW\" /><script src=\"/static/ebb64d62/jsbundles/page-init.js\" type=\"text/javascript\"></script></head><body data-model-type=\"hudson.util.HudsonFailedToLoad\" id=\"jenkins\" class=\"yui-skin-sam jenkins-2.6 two-column\" data-version=\"2.6\"><a href=\"#skip2content\" class=\"skiplink\">Skip to content</a><div id=\"page-head\"><div id=\"header\"><div class=\"logo\"><a id=\"jenkins-home-link\" href=\"/\"><img src=\"/static/ebb64d62/images/headshot.png\" alt=\"title\" id=\"jenkins-head-icon\" /><img src=\"/static/ebb64d62/images/title.png\" alt=\"title\" width=\"139\" id=\"jenkins-name-icon\" height=\"34\" /></a></div><div class=\"login\"></div><div class=\"searchbox hidden-xs\"><form method=\"get\" name=\"search\" style=\"position:relative;\" class=\"no-json\"><div id=\"search-box-minWidth\"></div><div id=\"search-box-sizer\"></div><div id=\"searchform\"><input name=\"q\" placeholder=\"search\" id=\"search-box\" class=\"has-default-text\" />?<a href=\"http://wiki.jenkins-ci.org/display/JENKINS/Search+Box\"><img src=\"/static/ebb64d62/images/16x16/help.png\" style=\"width: 16px; height: 16px; \" class=\"icon-help icon-sm\" /></a><div id=\"search-box-completion\"></div><script>createSearchBox(\"\");</script></div></form></div></div><div id=\"breadcrumbBar\"><tr id=\"top-nav\"><td id=\"left-top-nav\" colspan=\"2\"><link rel='stylesheet' href='/adjuncts/ebb64d62/lib/layout/breadcrumbs.css' type='text/css' /><script src='/adjuncts/ebb64d62/lib/layout/breadcrumbs.js' type='text/javascript'></script><div class=\"top-sticker noedge\"><div class=\"top-sticker-inner\"><div id=\"right-top-nav\"><div id=\"right-top-nav\"><div class=\"smallfont\"><a href=\"?auto_refresh=true\">ENABLE AUTO REFRESH</a></div></div></div><ul id=\"breadcrumbs\"></ul><div id=\"breadcrumb-menu-target\"></div></div></div></td></tr></div></div><div id=\"page-body\" class=\"clear\"><div id=\"side-panel\"></div><div id=\"main-panel\"><a name=\"skip2content\"></a><h1><img src=\"/static/ebb64d62/images/48x48/error.png\" style=\"width: 48px; height: 48px; \" class=\"icon-error icon-xlg\" />?Error</h1><pre>hudson.util.HudsonFailedToLoad: org.jvnet.hudson.reactor.ReactorException: java.lang.Error: java.lang.reflect.InvocationTargetException", "\tat hudson.WebAppMain$3.run(WebAppMain.java:244)", "Caused by: org.jvnet.hudson.reactor.ReactorException: java.lang.Error: java.lang.reflect.InvocationTargetException", "\tat org.jvnet.hudson.reactor.Reactor.execute(Reactor.java:269)", "\tat jenkins.InitReactorRunner.run(InitReactorRunner.java:45)", "\tat jenkins.model.Jenkins.executeReactor(Jenkins.java:1007)", "\tat jenkins.model.Jenkins.&lt;init>(Jenkins.java:878)", "\tat hudson.model.Hudson.&lt;init>(Hudson.java:85)", "\tat hudson.model.Hudson.&lt;init>(Hudson.java:81)", "\tat hudson.WebAppMain$3.run(WebAppMain.java:227)", "Caused by: java.lang.Error: java.lang.reflect.InvocationTargetException", "\tat hudson.init.TaskMethodFinder.invoke(TaskMethodFinder.java:110)", "\tat hudson.init.TaskMethodFinder$TaskImpl.run(TaskMethodFinder.java:175)", "\tat org.jvnet.hudson.reactor.Reactor.runTask(Reactor.java:282)", "\tat jenkins.model.Jenkins$7.runTask(Jenkins.java:996)", "\tat org.jvnet.hudson.reactor.Reactor$2.run(Reactor.java:210)", "\tat org.jvnet.hudson.reactor.Reactor$Node.run(Reactor.java:117)", "\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)", "\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)", "\tat java.lang.Thread.run(Thread.java:748)", "Caused by: java.lang.reflect.InvocationTargetException", "\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)", "\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)", "\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)", "\tat java.lang.reflect.Method.invoke(Method.java:498)", "\tat hudson.init.TaskMethodFinder.invoke(TaskMethodFinder.java:104)", "\t... 8 more", "Caused by: java.lang.NoSuchMethodError: jenkins.model.Jenkins.get()Ljenkins/model/Jenkins;", "\tat org.jenkinsci.plugins.workflow.cps.nodes.StepDescriptorCache.getPublicCache(StepDescriptorCache.java:48)", "\tat org.jenkinsci.plugins.workflow.cps.nodes.StepDescriptorCache.invalidateGlobalCache(StepDescriptorCache.java:55)", "\t... 13 more", "</pre></div></div><footer><div class=\"container-fluid\"><div class=\"row\"><div class=\"col-md-6\" id=\"footer\"></div><div class=\"col-md-18\"><span class=\"page_generated\">Page generated: Feb 26, 2019 2:30:01 PM UTC</span><span class=\"jenkins_ver\"><a href=\"http://jenkins-ci.org/\">Jenkins ver. 2.6</a></span></div></div></div></footer></body></html>"]}
+	to retry, use: --limit @/opt/ansible/playbooks/jenkins.retry
+
+PLAY RECAP *********************************************************************
+10.1.0.4                   : ok=21   changed=0    unreachable=0    failed=1   
+

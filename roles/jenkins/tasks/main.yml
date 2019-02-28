@@ -8,7 +8,7 @@
 - name: Include OS-Specific variables
   include_vars: "{{ ansible_os_family }}.yml"
 
-- debug: var=__jenkins_repo_url
+#- debug: var=__jenkins_repo_url
 
 - name: Define jenkins_repo_url
   set_fact:
@@ -36,7 +36,11 @@
 # Make sure Jenkins starts, then configure Jenkins.
 
 - name: Ensure Jenkins is started and runs on startup.
-  service: name=jenkins state=started enabled=yes
+  become: yes
+  service:
+    name: jenkins 
+    state: started 
+    enabled: yes
 
 - name: Wait for Jenkins to start up before proceeding.
   command: >
@@ -70,3 +74,6 @@
   file:
     path: "{{ jenkins_home }}/init.groovy.d/basic-security.groovy"
     state: absent
+
+- import_tasks: plugins.yml
+  become: yes

@@ -1,5 +1,5 @@
 java_pkg: java-1.8.0-openjdk-devel
-jenkins_version: 2.160
+jenkins_version: 2.166
 
 # for main.yml and name 'Wait for Jenkins to start up before proceeding'
 jenkins_connection_delay: 5
@@ -33,3 +33,86 @@ jenkins_init_changes:
     value: "--prefix={{ jenkins_url_prefix }}"
   - option: "{{ jenkins_java_options_env_var }}"
     value: "{{ jenkins_java_options }}"
+
+
+jenkins_admin_username: admin
+jenkins_admin_password: admin
+jenkins_admin_password_file: ""
+
+jenkins_plugins: [
+ace-editor,
+ant,
+antisamy-markup-formatter,
+apache-httpcomponents-client-4-api,
+authentication-tokens,
+bouncycastle-api,
+branch-api,
+build-timeout,
+cloudbees-folder,
+credentials,
+credentials-binding,
+display-url-api,
+docker-commons,
+docker-workflow,
+durable-task,
+email-ext,
+git,
+git-client,
+git-server,
+github,
+github-api,
+github-branch-source,
+gradle,
+handlebars,
+jackson2-api,
+jquery-detached,
+jsch,
+junit,
+ldap,
+mailer,
+mapdb-api,
+matrix-auth,
+matrix-project,
+momentjs,
+pam-auth,
+pipeline-build-step,
+pipeline-github-lib,
+pipeline-graph-analysis,
+pipeline-input-step,
+pipeline-milestone-step,
+pipeline-model-api,
+pipeline-model-declarative-agent,
+pipeline-model-definition,
+pipeline-model-extensions,
+pipeline-rest-api,
+pipeline-stage-step,
+pipeline-stage-tags-metadata,
+pipeline-stage-view,
+pipeline-stage-view.bak,
+plain-credentials,
+resource-disposer,
+scm-api,
+script-security,
+ssh-credentials,
+ssh-slaves,
+structs,
+subversion,
+timestamper,
+token-macro,
+workflow-aggregator,
+workflow-api,
+workflow-basic-steps,
+workflow-cps,
+workflow-cps-global-lib,
+workflow-durable-task-step,
+workflow-job,
+workflow-multibranch,
+workflow-scm-step,
+workflow-step-api,
+workflow-support,
+ws-cleanup]
+jenkins_plugins_state: present
+jenkins_plugin_updates_expiration: 86400
+jenkins_plugin_timeout: 30
+jenkins_plugins_install_dependencies: true
+jenkins_updates_url: "https://updates.jenkins.io"
