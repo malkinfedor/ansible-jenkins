@@ -77,3 +77,4 @@
 
 - import_tasks: plugins.yml
   become: yes
+  tags: install_plugins

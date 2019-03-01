@@ -37,7 +37,6 @@
   retries: 3
   delay: 2
 
-- debug: var=get_result
 
 - name: Remove first and last line from json file.
   replace:
